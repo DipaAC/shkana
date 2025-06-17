@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Data semua langkah dalam array
 steps=(
     "Buka Panel Pterodactyl\n1. Akses: https://panel.kanacloud.space\n2. Login dengan akun Anda"
     "Akses Server Target\n1. Pilih server database yang baru saja kamu beli\n2. Pastikan Anda di halaman utama server"
@@ -9,7 +8,6 @@ steps=(
     "Catat Informasi Database\nHost     : \${DB_HOST}\nPort     : 3306\nDatabase : \${DB_DATABASE}\nUsername : \${DB_USERNAME}\nPassword : \${DB_PASSWORD}"
 )
 
-# Fungsi untuk tampilan header
 draw_header() {
     clear
     echo -e "\033[1;36m"
@@ -21,13 +19,11 @@ draw_header() {
     echo -e "\033[0m"
 }
 
-# Fungsi untuk menampilkan langkah
 show_step() {
     echo -e "\n\033[1;33m» Langkah $1:\033[0m"
     echo -e "\n${steps[$1]}"
 }
 
-# Fungsi untuk akhir script
 show_success() {
     draw_header
     echo -e "\n\033[1;32m✓ Setup Database Berhasil!\033[0m\n"
@@ -41,11 +37,9 @@ show_success() {
     while true; do sleep 3600; done
 }
 
-# Mulai dari langkah 0
 current=0
 total_steps=${#steps[@]}
 
-# Main loop
 while true; do
     draw_header
     show_step $current
